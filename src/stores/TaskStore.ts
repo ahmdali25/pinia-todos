@@ -9,10 +9,7 @@ interface Task {
 
 export const useTaskStore = defineStore("taskStore", {
 	state: () => ({ 
-		tasks: <Task[]>[
-			{id: 1, title: "Buy some milk", isDone: false, isFav: false},
-			{id: 2, title: "Play a game", isDone: false, isFav: true}
-		]
+		tasks: <Task[]>[]
 	}),
 	getters: {
 		favTask: (state) => {
@@ -44,5 +41,6 @@ export const useTaskStore = defineStore("taskStore", {
 			const task = this.tasks.find(task => task.id === id);
 			task.isFav = !task.isFav
 		}
-	}
+	},
+	persist: true,
 })
